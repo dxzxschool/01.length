@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        background-color: #3b3b3b;
+        overflow: hidden;
+      }
+      #svg {
+        position: absolute;
+        left: -10000px;
+        top: -10000px;
+      }
+    </style>
+    <script src="../funcs/gsap.min.js"></script>
+    <script src="../funcs/Draggable.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      window.onload = function () {
+        var svg = document.getElementById("svg");
+        var svgScale = 1;
+        var svgWidth = 1000;
+        var svgHeight = 500;
+        var svgDrag = 0;
+        mapBig();
+        
+        if (svg.addEventListener) {
+          svg.addEventListener('mousewheel', mapBig, false);
+          svg.addEventListener('DOMMouseScroll', mapBig, false);
+        }
+    
+        var mmDrag = Draggable.create("#mm",{type:"x,y"});
+
+        var mmDrag = Draggable.create("#cm",{type:"x,y"});
+
+        var btn = document.getElementById("btn");
+        var rect = document.getElementById("rect");
+        btn.addEventListener("click",function(){
+          rect.setAttribute("width",500+Math.floor(Math.random()*300 + -150));
+        })
+        
+
+
+        
+        
+        
+        
+        
+        
+        //1.中心点在原点，2.获取整个区域的大小
+        function mapBig(e) {
+          if(e){
+            const event = window.event || e;
+            event.preventDefault();
+            const delta = event.wheelDelta || -event.detail ;
+            if(delta<0) {
+              svgScale *= 1.1;
+            } else {
+              svgScale *= 0.9;
+            }
+          }
+          mcWidth = svgWidth*svgScale;
+          mcHeight = svgWidth*svgScale;
+          var viewWidth = window.innerWidth;
+          var viewHeight = window.innerHeight;
+          var mcWScale = viewWidth / mcWidth; //放大倍数
+          var mcHScale = viewHeight / mcHeight; //放大倍数
+          var mcScale = mcWScale > mcHScale ? mcHScale : mcWScale;
+          var viewBox1 = -(10000 + viewWidth / 2) / mcScale;
+          var viewBox2 = -(10000 + viewHeight / 2) / mcScale;
+          var viewBox3 = 20000 / mcScale;
+          var svg = document.getElementById("svg");
+          svg.setAttribute(
+            "viewBox",
+            viewBox1 + " " + viewBox2 + " " + viewBox3 + " " + viewBox3
+          );
+          if (svgDrag) {
+            Draggable.create(svg, { type: "x,y" });
+          }
+        }
+
+        // <g transform="translate(950, 115)">   平移
+        // <g transform="skewX(10)">   变形
+        // <gtransform="rotate(30)">   旋转
+        // mapBig(1000, 900,0);
+        // gsap.to(svg,{transformOrigin: "center center",scale:2});
+
+    }
+    </script>
+
+    <!-- viewBox="-86.24 -70.454 111 111" -->
+    <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" width="20000" height="20000">
+      <defs>
+        <style type="text/css">
+         <![CDATA[
+          .str0 {stroke:black;stroke-width:2;stroke-miterlimit:22.9256}
+          .fil2 {fill:none}
+          .fil0 {fill:#F5B06E}
+          .fil4 {fill:#E62129}
+          .fil3 {fill:black}
+          .fil5 {fill:#ACCE22;fill-opacity:0.000000}
+          .fil1 {fill:#FEFEFE;fill-opacity:0.501961}
+          .fnt0 {font-weight:normal;font-size:41.67px;font-family:'宋体'}
+         ]]>
+        </style>
+       </defs>
+       <g id="图层_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"/>
+        <rect id="rect" class="fil0" x="-300" y="-86.88" width="600" height="173.75"/>
+        <g id="mm">
+         <polygon class="fil1" points="-487.5,140.24 487.5,140.24 487.5,247.11 -487.5,247.11 "/>
+         <line class="fil2 str0" x1="-450" y1="140.24" x2="-450" y2= "180.24" />
+         <line class="fil2 str0" x1="-441" y1="140.24" x2="-441" y2= "160.24" />
+         <line class="fil2 str0" x1="-405" y1="140.24" x2="-405" y2= "170.24" />
+         <line class="fil2 str0" x1="-432" y1="140.24" x2="-432" y2= "160.24" />
+         <line class="fil2 str0" x1="-423" y1="140.24" x2="-423" y2= "160.24" />
+         <line class="fil2 str0" x1="-414" y1="140.24" x2="-414" y2= "160.24" />
+         <line class="fil2 str0" x1="-396" y1="140.24" x2="-396" y2= "160.24" />
+         <line class="fil2 str0" x1="-387" y1="140.24" x2="-387" y2= "160.24" />
+         <line class="fil2 str0" x1="-378" y1="140.24" x2="-378" y2= "160.24" />
+         <line class="fil2 str0" x1="-369" y1="140.24" x2="-369" y2= "160.24" />
+         <line class="fil2 str0" x1="-360" y1="140.24" x2="-360" y2= "180.24" />
+         <line class="fil2 str0" x1="-351" y1="140.24" x2="-351" y2= "160.24" />
+         <line class="fil2 str0" x1="-315" y1="140.24" x2="-315" y2= "170.24" />
+         <line class="fil2 str0" x1="-342" y1="140.24" x2="-342" y2= "160.24" />
+         <line class="fil2 str0" x1="-333" y1="140.24" x2="-333" y2= "160.24" />
+         <line class="fil2 str0" x1="-324" y1="140.24" x2="-324" y2= "160.24" />
+         <line class="fil2 str0" x1="-306" y1="140.24" x2="-306" y2= "160.24" />
+         <line class="fil2 str0" x1="-297" y1="140.24" x2="-297" y2= "160.24" />
+         <line class="fil2 str0" x1="-288" y1="140.24" x2="-288" y2= "160.24" />
+         <line class="fil2 str0" x1="-279" y1="140.24" x2="-279" y2= "160.24" />
+         <line class="fil2 str0" x1="-270" y1="140.24" x2="-270" y2= "180.24" />
+         <line class="fil2 str0" x1="-261" y1="140.24" x2="-261" y2= "160.24" />
+         <line class="fil2 str0" x1="-225" y1="140.24" x2="-225" y2= "170.24" />
+         <line class="fil2 str0" x1="-252" y1="140.24" x2="-252" y2= "160.24" />
+         <line class="fil2 str0" x1="-243" y1="140.24" x2="-243" y2= "160.24" />
+         <line class="fil2 str0" x1="-234" y1="140.24" x2="-234" y2= "160.24" />
+         <line class="fil2 str0" x1="-216" y1="140.24" x2="-216" y2= "160.24" />
+         <line class="fil2 str0" x1="-207" y1="140.24" x2="-207" y2= "160.24" />
+         <line class="fil2 str0" x1="-198" y1="140.24" x2="-198" y2= "160.24" />
+         <line class="fil2 str0" x1="-189" y1="140.24" x2="-189" y2= "160.24" />
+         <line class="fil2 str0" x1="-180" y1="140.24" x2="-180" y2= "180.24" />
+         <line class="fil2 str0" x1="-171" y1="140.24" x2="-171" y2= "160.24" />
+         <line class="fil2 str0" x1="-135" y1="140.24" x2="-135" y2= "170.24" />
+         <line class="fil2 str0" x1="-162" y1="140.24" x2="-162" y2= "160.24" />
+         <line class="fil2 str0" x1="-153" y1="140.24" x2="-153" y2= "160.24" />
+         <line class="fil2 str0" x1="-144" y1="140.24" x2="-144" y2= "160.24" />
+         <line class="fil2 str0" x1="-126" y1="140.24" x2="-126" y2= "160.24" />
+         <line class="fil2 str0" x1="-117" y1="140.24" x2="-117" y2= "160.24" />
+         <line class="fil2 str0" x1="-108" y1="140.24" x2="-108" y2= "160.24" />
+         <line class="fil2 str0" x1="-99" y1="140.24" x2="-99" y2= "160.24" />
+         <line class="fil2 str0" x1="-90" y1="140.24" x2="-90" y2= "180.24" />
+         <line class="fil2 str0" x1="-81" y1="140.24" x2="-81" y2= "160.24" />
+         <line class="fil2 str0" x1="-45" y1="140.24" x2="-45" y2= "170.24" />
+         <line class="fil2 str0" x1="-72" y1="140.24" x2="-72" y2= "160.24" />
+         <line class="fil2 str0" x1="-63" y1="140.24" x2="-63" y2= "160.24" />
+         <line class="fil2 str0" x1="-54" y1="140.24" x2="-54" y2= "160.24" />
+         <line class="fil2 str0" x1="-36" y1="140.24" x2="-36" y2= "160.24" />
+         <line class="fil2 str0" x1="-27" y1="140.24" x2="-27" y2= "160.24" />
+         <line class="fil2 str0" x1="-18" y1="140.24" x2="-18" y2= "160.24" />
+         <line class="fil2 str0" x1="-9" y1="140.24" x2="-9" y2= "160.24" />
+         <line class="fil2 str0" x1="0" y1="140.24" x2="0" y2= "180.24" />
+         <line class="fil2 str0" x1="9" y1="140.24" x2="9" y2= "160.24" />
+         <line class="fil2 str0" x1="45" y1="140.24" x2="45" y2= "170.24" />
+         <line class="fil2 str0" x1="18" y1="140.24" x2="18" y2= "160.24" />
+         <line class="fil2 str0" x1="27" y1="140.24" x2="27" y2= "160.24" />
+         <line class="fil2 str0" x1="36" y1="140.24" x2="36" y2= "160.24" />
+         <line class="fil2 str0" x1="54" y1="140.24" x2="54" y2= "160.24" />
+         <line class="fil2 str0" x1="63" y1="140.24" x2="63" y2= "160.24" />
+         <line class="fil2 str0" x1="72" y1="140.24" x2="72" y2= "160.24" />
+         <line class="fil2 str0" x1="81" y1="140.24" x2="81" y2= "160.24" />
+         <line class="fil2 str0" x1="90" y1="140.24" x2="90" y2= "180.24" />
+         <line class="fil2 str0" x1="99" y1="140.24" x2="99" y2= "160.24" />
+         <line class="fil2 str0" x1="135" y1="140.24" x2="135" y2= "170.24" />
+         <line class="fil2 str0" x1="108" y1="140.24" x2="108" y2= "160.24" />
+         <line class="fil2 str0" x1="117" y1="140.24" x2="117" y2= "160.24" />
+         <line class="fil2 str0" x1="126" y1="140.24" x2="126" y2= "160.24" />
+         <line class="fil2 str0" x1="144" y1="140.24" x2="144" y2= "160.24" />
+         <line class="fil2 str0" x1="153" y1="140.24" x2="153" y2= "160.24" />
+         <line class="fil2 str0" x1="162" y1="140.24" x2="162" y2= "160.24" />
+         <line class="fil2 str0" x1="171" y1="140.24" x2="171" y2= "160.24" />
+         <line class="fil2 str0" x1="180" y1="140.24" x2="180" y2= "180.24" />
+         <line class="fil2 str0" x1="189" y1="140.24" x2="189" y2= "160.24" />
+         <line class="fil2 str0" x1="225" y1="140.24" x2="225" y2= "170.24" />
+         <line class="fil2 str0" x1="198" y1="140.24" x2="198" y2= "160.24" />
+         <line class="fil2 str0" x1="207" y1="140.24" x2="207" y2= "160.24" />
+         <line class="fil2 str0" x1="216" y1="140.24" x2="216" y2= "160.24" />
+         <line class="fil2 str0" x1="234" y1="140.24" x2="234" y2= "160.24" />
+         <line class="fil2 str0" x1="243" y1="140.24" x2="243" y2= "160.24" />
+         <line class="fil2 str0" x1="252.01" y1="140.24" x2="252.01" y2= "160.24" />
+         <line class="fil2 str0" x1="261.01" y1="140.24" x2="261.01" y2= "160.24" />
+         <line class="fil2 str0" x1="270" y1="140.24" x2="270" y2= "180.24" />
+         <line class="fil2 str0" x1="279" y1="140.24" x2="279" y2= "160.24" />
+         <line class="fil2 str0" x1="315" y1="140.24" x2="315" y2= "170.24" />
+         <line class="fil2 str0" x1="288" y1="140.24" x2="288" y2= "160.24" />
+         <line class="fil2 str0" x1="297" y1="140.24" x2="297" y2= "160.24" />
+         <line class="fil2 str0" x1="306" y1="140.24" x2="306" y2= "160.24" />
+         <line class="fil2 str0" x1="324" y1="140.24" x2="324" y2= "160.24" />
+         <line class="fil2 str0" x1="333" y1="140.24" x2="333" y2= "160.24" />
+         <line class="fil2 str0" x1="342" y1="140.24" x2="342" y2= "160.24" />
+         <line class="fil2 str0" x1="351" y1="140.24" x2="351" y2= "160.24" />
+         <line class="fil2 str0" x1="360" y1="140.24" x2="360" y2= "180.24" />
+         <line class="fil2 str0" x1="369" y1="140.24" x2="369" y2= "160.24" />
+         <line class="fil2 str0" x1="405" y1="140.24" x2="405" y2= "170.24" />
+         <line class="fil2 str0" x1="378" y1="140.24" x2="378" y2= "160.24" />
+         <line class="fil2 str0" x1="387" y1="140.24" x2="387" y2= "160.24" />
+         <line class="fil2 str0" x1="396" y1="140.24" x2="396" y2= "160.24" />
+         <line class="fil2 str0" x1="414" y1="140.24" x2="414" y2= "160.24" />
+         <line class="fil2 str0" x1="423" y1="140.24" x2="423" y2= "160.24" />
+         <line class="fil2 str0" x1="432" y1="140.24" x2="432" y2= "160.24" />
+         <line class="fil2 str0" x1="441" y1="140.24" x2="441" y2= "160.24" />
+         <line class="fil2 str0" x1="450" y1="140.24" x2="450" y2= "180.24" />
+         <text x="-370.69" y="226.76"  class="fil3 fnt0">1</text>
+         <text x="-460.34" y="226.59"  class="fil3 fnt0">0</text>
+         <text x="-280.17" y="226.59"  class="fil3 fnt0">2</text>
+         <text x="-190.33" y="226.59"  class="fil3 fnt0">3</text>
+         <text x="-100.4" y="226.59"  class="fil3 fnt0">4</text>
+         <text x="-10.33" y="226.3"  class="fil3 fnt0">5</text>
+         <text x="169.5" y="226.3"  class="fil3 fnt0">7</text>
+         <text x="79.67" y="226.59"  class="fil3 fnt0">6</text>
+         <text x="259.92" y="226.59"  class="fil3 fnt0">8</text>
+         <text x="349.83" y="226.59"  class="fil3 fnt0">9</text>
+         <text x="425.78" y="226.76"  class="fil3 fnt0">10</text>
+         <text x="-436.13" y="227.43"  class="fil4 fnt0">cm</text>
+        </g>
+        <g id="cm">
+         <polygon class="fil1" points="-487.5,-252.58 487.5,-252.58 487.5,-145.7 -487.5,-145.7 "/>
+         <line class="fil2 str0" x1="-450" y1="-252.58" x2="-450" y2= "-212.58" />
+         <line class="fil2 str0" x1="-360" y1="-252.58" x2="-360" y2= "-212.58" />
+         <line class="fil2 str0" x1="-270" y1="-252.58" x2="-270" y2= "-212.58" />
+         <line class="fil2 str0" x1="-180" y1="-252.58" x2="-180" y2= "-212.58" />
+         <line class="fil2 str0" x1="-90" y1="-252.58" x2="-90" y2= "-212.58" />
+         <line class="fil2 str0" x1="0" y1="-252.58" x2="0" y2= "-212.58" />
+         <line class="fil2 str0" x1="90" y1="-252.58" x2="90" y2= "-212.58" />
+         <line class="fil2 str0" x1="180" y1="-252.58" x2="180" y2= "-212.58" />
+         <line class="fil2 str0" x1="270" y1="-252.58" x2="270" y2= "-212.58" />
+         <line class="fil2 str0" x1="360" y1="-252.58" x2="360" y2= "-212.58" />
+         <line class="fil2 str0" x1="450" y1="-252.58" x2="450" y2= "-212.58" />
+         <text x="-370.69" y="-166.05"  class="fil3 fnt0">1</text>
+         <text x="-460.34" y="-166.22"  class="fil3 fnt0">0</text>
+         <text x="-280.17" y="-166.22"  class="fil3 fnt0">2</text>
+         <text x="-190.33" y="-166.22"  class="fil3 fnt0">3</text>
+         <text x="-100.4" y="-166.22"  class="fil3 fnt0">4</text>
+         <text x="-10.33" y="-166.51"  class="fil3 fnt0">5</text>
+         <text x="169.5" y="-166.51"  class="fil3 fnt0">7</text>
+         <text x="79.67" y="-166.22"  class="fil3 fnt0">6</text>
+         <text x="259.92" y="-166.22"  class="fil3 fnt0">8</text>
+         <text x="349.83" y="-166.22"  class="fil3 fnt0">9</text>
+         <text x="425.78" y="-166.05"  class="fil3 fnt0">10</text>
+         <text x="-436.13" y="-165.39"  class="fil4 fnt0">cm</text>
+        </g>
+        <g id="btn">
+         <path class="fil1" d="M-227.54 -67.14c28.16,0 51,22.83 51,51 0,0.48 -0.01,0.95 -0.02,1.43l12.2 0 -12.39 16.06 -8.54 11.06c-1.18,1.75 -2.47,3.42 -3.85,5l-15.9 -20.53 0.03 -0.04 -8.91 -11.55 12.34 0c0.02,-0.48 0.04,-0.95 0.04,-1.43 0,-14.36 -11.64,-26 -26,-26 -14.36,0 -26,11.64 -26,26 0,14.36 11.64,26 26,26 5.74,0 11.05,-1.87 15.35,-5.02l15.3 19.77c-8.53,6.43 -19.15,10.25 -30.65,10.25 -28.17,0 -51,-22.84 -51,-51 0,-28.17 22.83,-51 51,-51z"/>
+         <path class="fil5" d="M-227.35 -67.91c28.69,0 51.96,23.27 51.96,51.97 0,28.69 -23.27,51.96 -51.96,51.96 -28.7,0 -51.96,-23.27 -51.96,-51.96 0,-28.7 23.26,-51.97 51.96,-51.97z"/>
+        </g>
+       </g>
+    </svg>
+  </body>
+</html>
